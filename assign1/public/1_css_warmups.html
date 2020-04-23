@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CSS warmups | Assignment 1</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap">
+    <link rel="stylesheet" href="1_css_warmups.css">
+  </head>
+  <body>
+    <article>
+      <h1>A) Page font</h1>
+      <p>All of the text on this page should use the <a href="https://fonts.google.com/specimen/Source+Sans+Pro">Source Sans Pro</a> type face. You can use the inspector to see the fallback font.</p>
+    </article>
+
+    <article>
+      <h1>B) Change text case with CSS</h1>
+      <p class="upper-bold">The <strong>bold</strong> (inside &lt;strong&gt;)text in this paragraph should be <strong>All caps</strong>, without changing the HTML.</p>
+      <p>However, the <strong>bold</strong> text in this paragraph should <strong>remain unchanged</strong>.</p>
+    </article>
+
+    <article id="collapsed-margins">
+      <h1>C) Margin collapsing</h1>
+      <p id="first-para">The space between the above header ("Margin collapsing") and this paragraph should be removed.</p>
+      <p>Other margins should remain the same.</p>
+    </article>
+
+    <article>
+      <h1>D) Spacing of inline elements</h1>
+      <p>The direct children of the box should have 40px of spacing on all sides. The grandchildren should not have additional spacing.</p>
+      <p>That is, there should be 40px above, below, and to the left of "One", and 80px between "One" and "Two".</p>
+      <div id="spacing">
+        <span>One</span>
+        <span>Two <span>Three</span> Four</span>
+        <span>Five</span>
+        <span>Six</span>
+      </div>
+    </article>
+
+    <article>
+      <h1>E) Flexbox to align elements</h1>
+      <p>The heading and paragraph should appear to the right of the image. They should be vertically aligned to the bottom of the box.</p>
+      <div id="flex-align">
+        <img id="seal" src="images/stanford.png" alt="Stanford seal">
+        <div>
+          <h2>Heading</h2>
+          <p>Paragraph</p>
+        </div>
+      </div>
+  </body>
+</html>

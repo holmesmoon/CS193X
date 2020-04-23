@@ -1,0 +1,31 @@
+/* Starting rules for parts D and E. Keep these here and do not change them.
+   If you need to add more styles, repeat the selector in the appropriate section below */
+#spacing {
+  border: 2px solid black;
+  background-color: #c0c0ff;
+}
+
+#flex-align {
+  border: 2px solid black;
+  background-color: #c0c0ff;
+  width: 500px;
+}
+
+#seal {
+  height: 200px;
+}
+
+/* A) Page Font */
+/* TODO */
+
+/* B) Change text case */
+/* TODO */
+
+/* C) Margin collapsing */
+/* TODO */
+
+/* D) Spacing of inline elements */
+/* TODO */
+
+/* E) Flexbox to align elements */
+/* TODO */

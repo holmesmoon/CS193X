@@ -1,0 +1,158 @@
+<!-- CS193X Assignment 0
+     Please refer to the assignment handout on the course website for instructions. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Assignment 0</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <!-- This script verifies that your browser supports some of the features we will use in the class. -->
+    <script type="module" src="/lib/client/checkBrowser.js"></script>
+    <!-- This script provides the code behind the submit button. -->
+    <script type="module" src="/lib/client/submit.js"></script>
+  </head>
+  <body>
+    <!-- This section is used to notify you if your browser doesn't support the features we need.
+         It will be hidden automatically when the page loads. Please do not remove it yourself. -->
+    <section id="load-error">
+      <h1>Load Error</h1>
+      <p>This message should disappear when the page has loaded successfully.
+         If it does not, please check the following:</p>
+      <ul>
+        <li>Make sure you are accessing this page from <code>localhost:4000</code>, not double-clicking
+            <code>index.html</code> in your file system.</li>
+        <li>Try updating your browser. Most modern browsers should work fine (Firefox, Chrome, Safari).</li>
+        <li>Open the Javascript console (usually by pressing F12) and check to see if there are any messages.</li>
+      </ul>
+      <p>If you are having trouble, please post on the forum or stop by office hours.</p>
+    </section>
+
+    <section id="assign0" style="display: none">
+      <h1>Assignment 0: Tell us about yourself</h1>
+      <p>Welcome to CS193X! We'd like to get to know you and learn a bit about your situation.</p>
+      <p>To answer these questions, open the <code>index.html</code> file in the <code>public</code> folder of the
+         assignment directory. You will see a number of TODOs marking the places to put your answers.</p>
+      <p>You don't need to use any fancy HTML when answering these questions. Just plain text will be fine.</p>
+
+      <!-- QUESTIONS START HERE
+           ====================
+           Each question will have an element like this:
+
+           <strong class="answer">[TODO]</strong>
+
+           Replace the [TODO] with your answer. -->
+      <section>
+        <h2>About You</h2>
+
+        <!-- The first part of your stanford email address. Not the number -->
+        <div class="question" data-q="sunetid">
+          SUNetID:
+          <strong class="answer">samanyl</strong>@stanford.edu
+        </div>
+
+        <!-- How would you like us to refer to you? -->
+        <div class="question" data-q="name">
+          Preferred Given (First) Name:
+          <strong class="answer">Samantha</strong>
+        </div>
+
+        <!-- What are your pronouns? For example, "he/him", "she/her", "they/them", or something else -->
+        <div class="question" data-q="pronouns">
+          Pronouns:
+          <strong class="answer">she/her</strong>
+        </div>
+
+        <!-- Please enter in 24-hour format, e.g. 1:00 PM would be "13:00" -->
+        <div class="question" data-q="time">
+          When it is noon in California, my local time is:
+          <strong class="answer">12:00 PM</strong>
+        </div>
+      </section>
+
+      <!-- Each question in this section is multiple choice. Please uncomment one of the options. -->
+      <section>
+        <h2>About Your Environment</h2>
+
+        <!-- You'll likely need access to a full (desktop or laptop) OS rather than just mobile.
+             If this is an issue, please reach out to us. -->
+        <div class="question" data-q="os">
+          Operating system:
+          <strong class="answer">Windows</strong>
+          <!--<strong class="answer">macOS</strong>-->
+          <!-- Please indicate your distro -->
+          <!--<strong class="answer">Linux: [TODO]</strong>-->
+          <!--<strong class="answer">Other: [TODO]</strong>-->
+        </div>
+
+        <div class="question" data-q="browser">
+          Browser:
+          <strong class="answer">Chrome / Chromium</strong>
+          <!--<strong class="answer">Firefox</strong>-->
+          <!--<strong class="answer">Safari</strong>-->
+          <!--<strong class="answer">Edge</strong>-->
+          <!--<strong class="answer">Other: [TODO]</strong>-->
+        </div>
+
+        <!-- We will work to accommodate your situation as best we can. -->
+        <p>My internet connection is stable and reliable enough that I can ...</p>
+        <div class="question" data-q="net-live">
+          Attend lectures live:
+          <!-- <strong class="answer">Definitely</strong> -->
+          <strong class="answer">Probably</strong>
+          <!--<strong class="answer">Maybe</strong>-->
+          <!--<strong class="answer">Definitely not</strong>-->
+        </div>
+        <div class="question" data-q="net-video">
+          Watch lecture recordings:
+          <!--<strong class="answer">Definitely</strong>-->
+          <strong class="answer">Probably</strong>
+          <!--<strong class="answer">Maybe</strong>-->
+          <!--<strong class="answer">Definitely not</strong>-->
+        </div>
+        <div class="question" data-q="net-text">
+          Access course materials and other text documents:
+          <!-- <strong class="answer">Definitely</strong> -->
+          <strong class="answer">Probably</strong>
+          <!--<strong class="answer">Maybe</strong>-->
+          <!--<strong class="answer">Definitely not</strong>-->
+        </div>
+        <div class="question" data-q="net-work">
+          Stay online continuously while working on assignments:
+          <!--<strong class="answer">Definitely</strong>-->
+          <strong class="answer">Probably</strong>
+          <!--<strong class="answer">Maybe</strong>-->
+          <!--<strong class="answer">Definitely not</strong>-->
+        </div>
+
+        <p class="question" data-q="env-learning">
+          My current environment is conducive to learning:
+          <!--<strong class="answer">Definitely</strong>-->
+          <strong class="answer">Probably</strong>
+          <!--<strong class="answer">Maybe</strong>-->
+          <!--<strong class="answer">Definitely not</strong>-->
+        </p>
+      </section>
+
+      <section class="question" data-q="anything-else">
+        <h2>Anything else you want us to know?</h2>
+
+        <!-- Please use this space to tell us about any concerns you may have going into the class,
+             or anything else you'd like the course staff to know.
+             If you want to leave this blank, just remove the [TODO]. -->
+        <div class="answer" style="white-space: pre-line">
+        </div>
+      </section>
+
+      <section>
+        <h2>Submit</h2>
+        <p>When you are finished and confirm the page contains your answers, please click below to bubmit your responses.</p>
+        <p>You must also submit this file on Paperless.</p>
+        <button id="submit" type="button">Submit</button>
+      </section>
+    </section>
+  </body>
+</html>
