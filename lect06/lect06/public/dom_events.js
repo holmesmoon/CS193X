@@ -1,0 +1,1 @@
+/* DOM and events JS */

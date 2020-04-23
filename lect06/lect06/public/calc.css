@@ -1,0 +1,60 @@
+:root {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 3rem;
+  width: 14em;
+}
+
+#resultline {
+  display: flex;
+  margin: 0.5rem;
+}
+
+#clear {
+  margin-right: 0.5em;
+  padding: 0;
+}
+
+#result {
+  border: 1px solid black;
+  font-size: large;
+  /* Needed to make inputs shrink smaller than default width
+     See https://stackoverflow.com/questions/42421361/input-button-elements-not-shrinking-in-a-flex-container */
+  min-width: 0;
+  padding: 0 0.25em;
+  text-align: right;
+}
+
+#keypad {
+  display: flex;
+  justify-content: space-between;
+}
+
+#ops {
+  display: flex;
+  flex-direction: column;
+}
+
+#numbers > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#keypad button {
+  margin: 0.25em;
+  width: 3em;
+}
+
+#keypad #equals { /* Need #keypad to be more specific than above */
+  background-color: #8080ff;
+  font-weight: bold;
+  width: 5em;
+}
