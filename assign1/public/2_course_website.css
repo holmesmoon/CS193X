@@ -1,1 +1,36 @@
+/* Overall Page Style */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+}
 
+a:hover {
+  text-decoration: underline;
+}
+
+a:link {
+  color: #337ab7
+}
+
+a:visited {
+  color: #23527c
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  background-color: #444444;
+  width: 100%;
+  margin: 0 0 21px 0;
+  font-size: x-large;
+  color: #bbbbbb;
+  padding: 15px;
+}
+
+header span:hover {
+  color: white;
+}
+
+#navright {
+  align-items: flex-end;
+}
