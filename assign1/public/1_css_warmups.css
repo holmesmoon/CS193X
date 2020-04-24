@@ -16,16 +16,19 @@
 }
 
 /* A) Page Font */
-/* TODO */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
 
 /* B) Change text case */
-/* TODO */
+#upper-bold strong {
+    text-transform: uppercase;
+}
 
 /* C) Margin collapsing */
-/* TODO */
+
 
 /* D) Spacing of inline elements */
-/* TODO */
+
 
 /* E) Flexbox to align elements */
-/* TODO */
