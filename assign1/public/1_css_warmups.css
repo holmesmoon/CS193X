@@ -21,12 +21,14 @@ body {
 }
 
 /* B) Change text case */
-#upper-bold strong {
+.upper-bold strong {
     text-transform: uppercase;
 }
 
 /* C) Margin collapsing */
-
+article.collapsed-margins h1 {
+  word-spacing: 0px;
+}
 
 /* D) Spacing of inline elements */
 
