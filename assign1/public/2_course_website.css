@@ -18,19 +18,110 @@ a:visited {
 
 /* Header Styles */
 header {
-  display: flex;
   background-color: #444444;
   width: 100%;
   margin: 0 0 21px 0;
-  font-size: x-large;
   color: #bbbbbb;
   padding: 15px;
+  text-transform: uppercase;
 }
 
-header span:hover {
+#course_name:hover {
   color: white;
 }
 
-#navright {
+#course_name {
+  font-size: x-large;
+}
+
+header span {
+  display: flex;
+  justify-content: space-between;
   align-items: flex-end;
+  margin-right: 15px;
+}
+
+.nav_links {
+
+}
+
+.nav_links span:hover{
+  color: white;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  margin: auto;
+}
+
+#seal {
+  height: 100px;
+}
+
+#banner h1,p {
+  margin: 0;
+}
+
+main {
+  display: flex;
+}
+
+main h2 {
+  color: #959595;
+}
+
+.left {
+  width: 20%;
+  text-align: center;
+  margin: 0 15px;
+}
+
+.left img {
+  height: 150px;
+  width: auto;
+}
+
+.center {
+  width:60%;
+  margin: 0 15px;
+}
+
+#announce_title {
+  text-align: center;
+}
+
+h3 {
+  color: #175e54;
+  font-size: medium;
+  margin: 0;
+}
+
+.announce_date {
+  font-size: x-small;
+  margin-bottom: 10px;
+}
+
+.announce {
+  background-color: #eaf2e9;
+  border: 1px solid #c7d1c5;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.right {
+  width: 20%;
+  margin: 0 15px;
+}
+
+footer {
+  position: absolute;
+  bottom: 5px;
+  left: 1vw;
+  background-color: #f8f8f8;
+  color: green;
+  font-size: small;
 }
