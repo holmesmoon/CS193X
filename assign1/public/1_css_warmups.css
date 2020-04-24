@@ -26,11 +26,25 @@ body {
 }
 
 /* C) Margin collapsing */
-article.collapsed-margins h1 {
-  word-spacing: 0px;
+#collapsed-margins h1 {
+  margin-bottom: 0;
+}
+
+#first-para {
+  margin-top: 0;
 }
 
 /* D) Spacing of inline elements */
+#spacing {
+  padding: 40px 0;
+}
 
+#spacing > span {
+  padding: 40px;
+}
 
 /* E) Flexbox to align elements */
+#flex-align {
+  display: flex;
+  align-items: flex-end;
+}
