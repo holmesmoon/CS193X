@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>NameSurfer JS | Assignment 2</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <link rel="stylesheet" href="base_styles.css">
+    <link rel="stylesheet" href="my_styles.css">
+
+    <script src="name_data.js" defer></script>
+    <script src="process_names.js" defer></script>
+    <script src="3_namesurfer.js" defer></script>
+  </head>
+  <body>
+    <div id="container">
+      <section id="sidePanel">
+        <header>
+          <h1>NameSurfer JS</h1>
+          <form id="graphForm">
+            <label>Name: <input id="nameInput"></label>
+            <button type="submit" id="graphButton">Graph</button>
+          </form>
+          <div id="errorMsg" class="hidden"></div>
+        </header>
+        <ul id="nameList">
+          <li class="template">
+            <div class="colorSquare"></div>
+            <span class="nameLabel"></span>
+            <button class="deleteButton">&times;</button>
+          </li>
+        </ul>
+      </section>
+
+      <div id="yaxis">
+        <div>0</div>
+        <div>100</div>
+        <div>200</div>
+        <div>300</div>
+        <div>400</div>
+        <div>500</div>
+        <div>600</div>
+        <div>700</div>
+        <div>800</div>
+        <div>900</div>
+        <div>1000</div>
+      </div>
+      <main id="graph">
+        <div id="graphContent">
+          <div id="grid">
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline dark"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+            <div class="gridline"></div>
+          </div>
+          <div id="columns">
+          </div>
+        </div>
+        <div id="xaxis">
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

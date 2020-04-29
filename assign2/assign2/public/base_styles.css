@@ -1,0 +1,147 @@
+:root {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: x-large;
+  margin-top: 0;
+}
+
+.hidden, .template {
+  display: none;
+}
+
+#container {
+  height: 100vh;
+
+  display: flex;
+}
+
+#sidePanel {
+  background-color: lightgray;
+  padding: 0.5rem;
+  width: 20%;
+}
+
+#graphForm {
+  display: flex;
+}
+
+#graphForm label {
+  flex-grow: 1;
+
+  display: flex;
+  align-items: center;
+}
+
+/* Inputs and buttons ahve a fixed default size, which we have to override with min-width */
+#nameInput {
+  margin: 0 0.25rem;
+  min-width: 0;
+}
+
+#graphButton {
+  min-width: 0;
+  padding: 0;
+}
+
+#errorMsg {
+  background-color: #ffa0a0;
+  margin-top: 0.5rem;
+  padding: 0.25em;
+  text-align: center;
+}
+
+#nameList {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.colorSquare {
+  border: 1px solid black;
+  display: inline-block;
+  height: 1em;
+  margin-right: 0.25em;
+  width: 1em;
+}
+
+.deleteButton {
+  border: 0;
+  background-color: #ffc0c0;
+  padding: 0;
+}
+
+#yaxis {
+  /* Add a transparent border to match the black border of #graphContent */
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
+  /* This bottom margin includes the height of the x axis */
+  margin: 1rem 0.25rem 3rem 1rem;
+  /* Make the text take up no height, which both centered the labels and aligns them with the grid */
+  line-height: 0;
+  text-align: right;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#graph {
+  flex-grow: 1;
+  margin: 1rem 1rem 1rem 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#graphContent {
+  border: 2px solid black;
+  flex-grow: 1;
+}
+
+#grid {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  /* space-evenly is like space-around, but the spacing at the beginning and end are each equal to
+     the spacing in the middle */
+  justify-content: space-evenly;
+}
+
+.gridline {
+  border-bottom: 1px solid gray;
+}
+
+.gridline.dark {
+  border-bottom: 1px solid black;
+}
+
+#xaxis {
+  font-weight: bold;
+  height: 2rem;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Bar and label colors */
+.barColor1 { background-color: #007c92; }
+.barColor2 { background-color: #8d3c1e; }
+.barColor3 { background-color: #175e54; }
+.barColor4 { background-color: #b26f16; }
+.barColor5 { background-color: #53284f; }
+
+.labelColor1 { color: #007c92; }
+.labelColor2 { color: #8d3c1e; }
+.labelColor3 { color: #175e54; }
+.labelColor4 { color: #b26f16; }
+.labelColor5 { color: #53284f; }

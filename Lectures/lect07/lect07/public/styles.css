@@ -1,0 +1,41 @@
+:root {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+h2 {
+  font-size: medium;
+  margin-bottom: 0;
+}
+
+textarea {
+  width: 100%;
+}
+
+.sidebyside {
+  display: flex;
+}
+
+.sidebyside > * {
+  margin: 0 1rem;
+}
+
+.delButton {
+  background-color: #ffc0c0;
+  margin-left: 0.5rem;
+}
+
+#descBox {
+  border: 2px solid black;
+  width: 20em;
+  height: 5em;
+  padding: 0.25em;
+  white-space: pre-line;
+}
+
+.selected {
+  border: 1px solid black;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>processNames | Assignment 2</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <script src="name_data.js" defer></script>
+    <script src="process_names.js" defer></script>
+    <script src="2_process_names_test.js" defer></script>
+  </head>
+  <body>
+    <h1>processNames</h1>
+    <p>You can ccess the raw name data in the console through the <code>RAW_NAME_DATA</code> variable, and the result of your <code>processNames</code> function through the <code>NAME_DATA</code> variable.</p>
+    <p>Here are a few tests to confirm that your data matches our expected format:</p>
+    <ul>
+      <li><code>NAME_DATA.years: <span id="years"></span></code></li>
+      <li><code>Object.keys(NAME_DATA.names).length: <span id="nameCount"></span></code></li>
+      <li><code>NAME_DATA.names.Kashif === undefined: <span id="kashifUndef"></span></code></li>
+      <li><code>NAME_DATA.names.Cole.length: <span id="coleLength"></span></code></li>
+      <li><code>NAME_DATA.names.Sam.length: <span id="samLength"></span></code></li>
+      <li><code>NAME_DATA.names.Michael[7].rank: <span id="michaelRank"></span></code></li>
+      <li><code>NAME_DATA.names.Jessica[4].count: <span id="jessicaCount"></span></code></li>
+      <li><code>NAME_DATA.names.Nick[8] === null: <span id="nickNull"></span></code></li>
+    </ul>
+  </body>
+</html>
