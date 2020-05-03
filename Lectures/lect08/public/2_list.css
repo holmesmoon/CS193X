@@ -1,0 +1,25 @@
+:root {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+h2 {
+  font-size: medium;
+  margin-bottom: 0;
+}
+
+.sidebyside {
+  display: flex;
+}
+
+.sidebyside > * {
+  margin: 0 1rem;
+}
+
+.delButton {
+  background-color: #ffc0c0;
+  margin-left: 0.5rem;
+}
