@@ -1,0 +1,28 @@
+CS193X Final Project Proposal
+=============================
+
+Project Name: Kit Switch Beta Website
+Your Name: Samantha Liu
+Your SUNetID: 06020600
+
+Description
+-----------
+I wish to create a functional user-interface website for a product that is currently called Kit-Switch, an interior design kit. On this website, you would be able to learn about the product, visualize different possible floorplan layouts, and contact the team.
+
+Milestones
+----------
+1. Home page (logo, links to other parts of the website)
+2. About Us page (the team, motivation, and contact infomration)
+3. Floorplan Tool page (will be the toughest, but a client-server js script that allows users to add in lines to represent walls and room dividers)
+
+External libraries and code
+---------------------------
+None (still need to explore what libraries are out there)
+
+Collaboration and resources
+---------------------------
+The members of Kit Switch, and CS193X teaching staff 
+
+Anything else?
+-------------
+If you have any suggestions or recommendations on which external libraries I would need/should look into, please let me know! (:
