@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>My Favorite Class</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap">
+    <link rel="stylesheet" href="home.css">
+  </head>
+  <body>
+
+    <header>
+      <div>
+        <a href="home.html"><img id="logo_long" src="images/Logo_long.png"></a>
+      </div>
+      <nav class="nav_links">
+        <a href="tool.html">Floorplan Configuration Tool</a>
+        <a href="story.html">Our Story</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="left">
+        <h2>Teaching Staff</h2>
+        <img src="images/zoom.png">
+        <div>
+          <strong>Instructor: </strong>Zoom University<br><br>
+        </div>
+        <div>
+          <strong>TA: </strong>Samantha Liu<br><br>
+        </div>
+      </div>
+
+      <div class="center">
+        <h2 id="announce_title">Announcements</h2>
+        <div class="announce">
+          <h3>Announcement 2</h3>
+          <div class="announce_date">
+            Posted April 8, 2020 by Zoom
+          </div>
+          <div>
+            I'm proud to announce that everything will smoothly transition to online with our amazing
+            new software - Zoom Technologies. With Zoom we are able to function just as we have before,
+            thus increasing social distancing, flattening the curve, and reducing global carbon emissions.
+            It's a win-win situation for us and the world.
+          </div>
+        </div>
+        <div class="announce">
+          <h3>Announcement 1</h3>
+          <div class="announce_date">
+            Posted January 20, 2020 by Corona
+          </div>
+          <div>
+            I would like to send an early announcement to be prepared for a lot of work this quarter!
+            This course is intended to test your intelligence, immunity, and adaptability as a human bean.
+            Enjoy socializing with your friends while you can!
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="https://stanford.zoom.us/j/6510667592?pwd=ODNZa1RsVkZKZ1lsR0VRRHBkOWZtdz09">Office Hours Calendar</a></li>
+          <li><a href="https://stanford.zoom.us/j/6510667592?pwd=ODNZa1RsVkZKZ1lsR0VRRHBkOWZtdz09">Discussion Forum</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      CS193X Assignment 1, coded by Samantha Liu
+    </footer>
+
+  </body>
+</html>

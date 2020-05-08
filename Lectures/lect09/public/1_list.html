@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dynamic list (modules) | Lecture 9</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <link rel="stylesheet" href="1_list.css">
+    <!-- defer is redundant for modules -->
+    <script type="module" src="1_list.js"></script>
+  </head>
+  <body>
+    <h1>Dynamic list (modules)</h1>
+    <div class="sidebyside">
+      <section>
+        <h2>New item</h2>
+        <form id="addForm">
+          <label>Summary: <input id="summary"></label><br>
+          <button type="submit" id="addButton">Add</button>
+        </form>
+      </section>
+      <section class="content">
+        <span id="doneCount"></span>
+        <ul id="list">
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
