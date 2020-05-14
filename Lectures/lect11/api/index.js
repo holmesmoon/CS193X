@@ -3,7 +3,7 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 
-const api = module.exports = express.Router();
+const api = express.Router();
 api.use(bodyParser.json());
 
 api.get("/", (req, res) => {
@@ -27,7 +27,7 @@ const COURSES = {
 };
 
 const ENROLLMENT = {
-  raul: [], cole: [], jessica: [], kashif: []
+  raul: [], cole: [], jessica: [], kashif: ["cs193x"]
 };
 
 api.get("/students", (req, res) => {
@@ -63,7 +63,7 @@ api.post("/students/:id/enroll", (req, res) => {
     res.status(404).json({ error: `Can't find student ${id}` });
     return;
   }
-  let course = req.body.course;
+  let course = req.body.course || req.query.course;
   if (!COURSES[course]) {
     res.status(404).json({ error: `Invalid course ${course}` });
     return;
@@ -82,7 +82,19 @@ api.get("/protected", (req, res) => {
   res.status(403).json({ error: "You aren't allowed" });
 });
 
+api.post("/*", (req, res) => {
+  let data = {
+    method: req.method,
+    path: req.url,
+    query: req.query,
+    body: req.body
+  };
+  console.log(data);
+  res.json(data);
+});
+
 api.get("/*", (req, res) => {
   res.status(404).json({ error: `Not found: ${req.url}` });
 });
 
+module.exports.api = api;

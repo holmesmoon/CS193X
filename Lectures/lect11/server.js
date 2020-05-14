@@ -4,7 +4,7 @@ const express = require("express");
 const http = require("http");
 const path = require("path");
 
-const api = require("./api");
+const { api } = require("./api");
 const updater = require("./lib/server/updater");
 
 const PORT = 1930;

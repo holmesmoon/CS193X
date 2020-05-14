@@ -1,7 +1,7 @@
 {
-  "name": "@cs193x/lect10",
+  "name": "@cs193x/lect11",
   "version": "1.0.0",
-  "description": "CS193X Lecture 10",
+  "description": "CS193X Lecture 11",
   "license": "UNLICENSED",
   "private": true,
   "main": "server.js",
