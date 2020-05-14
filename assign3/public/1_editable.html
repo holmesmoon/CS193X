@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>EditableText | Assignment 3</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <link rel="stylesheet" href="1_editable.css">
+    <script type="module" src="1_editable.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>EditableText</h1>
+      <section class="inputs">
+        <div class="editableInputContainer">
+          <label for="text1">First:</label>
+          <div id="container1"></div>
+        </div>
+        <div class="editableInputContainer">
+          <label for="text2">Second:</label>
+          <div id="container2"></div>
+        </div>
+      </section>
+      <button class="secondary" id="setButton">Set text</button>
+    </main>
+  </body>
+</html>
