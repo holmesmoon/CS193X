@@ -1,0 +1,16 @@
+{
+  "name": "@cs193x/lect12",
+  "version": "0.1.0",
+  "description": "CS193X Lecture 12",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon"
+  }
+}

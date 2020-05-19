@@ -3,11 +3,10 @@ export default class EditableText {
   constructor(id) {
     this.id = id;
     this.value = "";
+
     //TODO: Add instance variables, bind event handlers, etc.
     this._node = null;
-    // this._callbacks = {onChange:null};
-
-    this._edit = this._edit.bind(this);
+    this.onChange = null;
     this.setValue = this.setValue.bind(this);
   }
 
@@ -16,9 +15,7 @@ export default class EditableText {
   addToDOM(parent, onChange) {
     this._node = this._createDisplay();
     parent.appendChild(this._node);
-    onChange(this);
-    // this._callbacks = {onChange};
-    // this._callbacks.onChange(this);
+    this.onChange = onChange;
   }
 
   /* Set the value of the component and switch to display state if necessary. Does not call onChange */
@@ -27,7 +24,6 @@ export default class EditableText {
     let node = this._createDisplay();
     this._node.replaceWith(node);
     this._node = node;
-    // this._callbacks.onChange(this);
   }
 
   _createDisplay() {
@@ -44,7 +40,12 @@ export default class EditableText {
     button.textContent = "Edit";
     container.appendChild(button);
 
-    button.addEventListener("click",this._edit);
+    button.addEventListener("click", (event) => {
+      let node = this._createInput();
+      this._node.replaceWith(node);
+      this._node = node;
+      this._node.focus();
+    });
 
     return container;
   }
@@ -56,16 +57,15 @@ export default class EditableText {
     input.id = this.id;
     input.value = this.value;
     // TODO add event handlers
-    document.querySelector("#setButton").addEventListener("click", (event) => {
-      this._text1.setValue(input.value);
+    input.addEventListener("blur", (event) => {
+      let oldVal = this.value;
+      this.setValue(input.value)
+      if (this.value !== oldVal) {
+        this.onChange(this);
+      }
     });
 
     return input;
-  }
-
-  _edit(event) {
-    let node = this._createInput();
-    this._node.replaceWith(node);
   }
 
 }
