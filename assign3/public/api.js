@@ -17,7 +17,8 @@ if (window.API_URL) API_URL = window.API_URL;
    - data is the data from the server (assumed to be JSON)
    If the request fails or is not in JSON format, alert() the Error's message and then rethrow it. No exception should
    be generated for a non-OK HTTP status, as the client may wish to handle this case themselves. */
-const apiRequest = async (method, path, body = null) => {
+const apiRequest = async (method, path, body) => {
+  path = API_URL.concat(path);
   try {
     let res;
     if (method === "GET") {
@@ -27,8 +28,8 @@ const apiRequest = async (method, path, body = null) => {
     } else {
       res = await fetch(path, {
         method: method,
-        headers: {"Context-Type": "application/json"},
-        body: body
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body)
       });
     }
     let data = await res.json()

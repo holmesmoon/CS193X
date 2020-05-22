@@ -4,7 +4,6 @@ export default class EditableText {
     this.id = id;
     this.value = "";
 
-    //TODO: Add instance variables, bind event handlers, etc.
     this._node = null;
     this.onChange = null;
     this.setValue = this.setValue.bind(this);
@@ -56,7 +55,7 @@ export default class EditableText {
     input.type = "text";
     input.id = this.id;
     input.value = this.value;
-    // TODO add event handlers
+
     input.addEventListener("blur", (event) => {
       let oldVal = this.value;
       this.setValue(input.value)

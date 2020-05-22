@@ -1,4 +1,6 @@
 import User from "./User.js";
+import EditableText from "./EditableText.js";
+import DynamicList from "./DynamicList.js";
 
 class App {
   constructor() {
@@ -6,11 +8,18 @@ class App {
 
     this._loginForm = null;
     this._postForm = null;
+    this._sidebar = null;
 
     this._onListUsers = this._onListUsers.bind(this);
     this._onLogin = this._onLogin.bind(this);
+    this._onChange = this._onChange.bind(this);
+    this._onAdd = this._onAdd.bind(this);
+    this._onDelete = this._onDelete.bind(this);
+    this._makePost = this._makePost.bind(this);
 
-    //TODO: Add instance variables, bind event handlers, etc.
+    this._displayName = new EditableText("displayName");
+    this._avatarURL = new EditableText("avatarURL");
+    this._following = new DynamicList("Follower ID");
   }
 
   setup() {
@@ -19,8 +28,11 @@ class App {
     this._loginForm.listUsers.addEventListener("click", this._onListUsers);
 
     this._postForm = document.querySelector("#postForm");
+    this._postForm.postButton.addEventListener("click", this._makePost);
 
-    //TODO: Complete the setup of remaining components
+    this._displayName.addToDOM(document.querySelector("#nameContainer"), this._onChange);
+    this._avatarURL.addToDOM(document.querySelector("#avatarContainer"), this._onChange);
+    this._following.addToDOM(document.querySelector("#followContainer"), this._onAdd, this._onDelete);
   }
 
   _getAvatar(user) {
@@ -57,7 +69,14 @@ class App {
     this._postForm.querySelector(".name").textContent = this._user.name;
     this._postForm.querySelector(".userid").textContent = this._user.id;
 
-    //TODO: Update the sidebar and load the feed
+    this._displayName.setValue(this._user.name);
+    this._avatarURL.setValue(this._user.avatarURL);
+    this._following.setList(this._user.following);
+
+    let posts = await this._user.getFeed();
+    for (let post of posts) {
+      this._displayPost(post);
+    }
   }
 
   /*** Event Handlers ***/
@@ -70,7 +89,41 @@ class App {
 
   async _onLogin(event) {
     event.preventDefault();
-    //TODO: Complete this function. You should set this._user and call loadProfile
+    let id = document.querySelector("input").value;
+    this._user = await User.loadOrCreate(id);
+    await this._loadProfile();
+  }
+
+  async _onChange(text) {
+    if (text.id === "displayName") {
+      this._user.name = text.value;
+    } else {
+      this._user.avatarURL = text.value;
+    }
+    await this._user.save();
+    await this._loadProfile();
+  }
+
+  async _onAdd(id) {
+    await this._user.addFollow(id);
+    let [status, data] = await apiRequest("GET", `/users/${this._user.id}`);
+    this._user.following = data.following;
+    await this._loadProfile();
+  }
+
+  async _onDelete(id) {
+    let list = await this._user.deleteFollow(id);
+    let [status, data] = await apiRequest("GET", `/users/${this._user.id}`);
+    this._user.following = data.following;
+    await this._loadProfile();
+  }
+
+  async _makePost(event) {
+    event.preventDefault();
+    let form = document.querySelector("#postForm");
+    await this._user.makePost(this._postForm.newPost.value);
+    form.reset();
+    await this._loadProfile();
   }
 }
 
