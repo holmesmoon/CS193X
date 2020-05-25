@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>REST API Tester</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <script type="module" src="rest.js"></script>
+  </head>
+  <body>
+    <h1>REST API Tester</h1>
+    <form id="form">
+      <label>Method: <input name="method" value="GET"></label><br>
+      <label>URL: <input name="url"></label><br>
+      <label>Body: <input name="body"></label> (JSON string, or blank for no body)<br>
+      <button type="submit" id="send">Send</button>
+    </form>
+  </body>
+</html>

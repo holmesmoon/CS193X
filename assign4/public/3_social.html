@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Generic Social Media App</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <!-- Open Sans Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="3_social.css">
+
+    <script type="module" src="3_social.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <div class="widthContainer">
+        <h1 class="brand">Generic Social Media App</h1>
+        <form id="loginForm">
+          <input name="userid" placeholder="User ID">
+          <button type="submit" id="login">Login</button>
+          <button type="button" id="listUsers" class="secondary">List Users</button>
+        </form>
+      </div>
+    </header>
+
+    <main id="welcome">
+      <div class="paper">
+        <h1>Welcome to <span class="brand">Generic Social Media App</span></h1>
+        <h2>Log in to view your feed</h2>
+      </div>
+    </main>
+
+    <main id="main" class="hidden">
+      <div class="widthContainer">
+        <section id="feedPanel">
+          <form id="postForm" class="post paper">
+            <img class="avatar" src="images/default.png" alt="Your avatar">
+            <div>
+              <div class="postHeader">
+                <span>
+                  <strong class="name"></strong>
+                  (<span class="userid"></span>)
+                </span>
+              </div>
+              <div class="text">
+                <textarea id="newPost" placeholder="What's happening?"></textarea>
+                <button id="postButton">Post</button>
+              </div>
+            </div>
+          </form>
+
+          <div id="templatePost" class="post paper">
+            <img class="avatar" src="images/default.png" alt="">
+            <div>
+              <div class="postHeader">
+                <span>
+                  <strong class="name"></strong>
+                  (<span class="userid"></span>)
+                </span>
+                <span class="time"></span>
+              </div>
+              <div class="text">
+              </div>
+            </div>
+          </div>
+          <div id="feed"></div>
+        </section>
+
+        <section id="sidebar">
+          <section id="editPanel" class="paper">
+            <h2>Edit Profile</h2>
+            <div>
+              <label>User ID:</label>
+              <div id="idContainer"></div>
+            </div>
+            <div>
+              <label for="nameInput">Display Name:</label>
+              <div id="nameContainer"></div>
+            </div>
+            <div>
+              <label for="avatarInput">Avatar URL:</label>
+              <div id="avatarContainer"></div>
+            </div>
+          </section>
+          <section id="followPanel" class="paper">
+            <h2>Following:</h2>
+            <div id="followContainer"></div>
+          </section>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
