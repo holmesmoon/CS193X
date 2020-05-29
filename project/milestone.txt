@@ -23,7 +23,7 @@ Mainly under the contact us page:
 
 External libraries and code
 ---------------------------
-Looking into HTML canvas element and any other libraries
+Looking into HTML canvas element, chart.js, leaflet.js
 
 Collaboration and resources
 ---------------------------
