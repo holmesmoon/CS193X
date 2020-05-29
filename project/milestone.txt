@@ -1,30 +1,36 @@
 CS193X Final Project Milestone
 =============================
 
-Project Name: <TODO>
-Your Name: <TODO>
-Your SUNetID: <TODO: first part of email address, not number>
+Project Name: Kit Switch Beta Website
+Your Name: Samantha Liu
+Your SUNetID: samanyl
 
 Overview
 --------
-<TODO: Let us know how things are going. What have you explored, looked into, worked on, and tried so far? What do you have left to do? Are you running into any particular difficulties or blockers?>
+I honestly have not done much other than creating the home page and the subsequent pages. Some of CSS and HTML files are set up. Go to extra comments for my questions
 
 Project Changes
 ---------------
-<TODO: If you have needed to change your project in any way, such as scope, features, etc., please let us know what you changed.>
+Not going to make a floorplan layout tool configuration page
+Site will be completely informative and illustrate why Kit Switch is needed today
+This means, I am now interested in making interactive charts or including a map (need some guidance on what libraries to use, so far I've seen leaflet)
 
 API
 ---
-<TODO: Identify a few (at least three or so) of your API endpoints, what they'll do, how they'll be used.>
+Mainly under the contact us page:
+1. Ability to send emails to our team
+2. Ability to upload and send their drawings/floorplan
 
 External libraries and code
 ---------------------------
-<TODO: Identify any external libraries or code you are using or plan to use, and describe how it fits into your project. Please include everything even if you already listed it in your proposal.>
+Looking into HTML canvas element and any other libraries
 
 Collaboration and resources
 ---------------------------
-<TODO: Identify any sources you have consulted or plan to consult, except for code listed above. Include those you listed previously in your proposal.>
+The members of Kit Switch, and CS193X teaching staff
 
 Anything else?
 -------------
-<TODO: Anything else you'd like the teaching staff to know? How are you doing overall?>
+Currently wondering if there's a better way to break things up. Because I can continue with the way I'm going, but I feel it's a little inefficient and not very clean.
+Have any other libraries/ideas that may help me out?
+What is the best way to store the information/values/data for these eventual charts? using Mongo? using CSV? Google sheets?
