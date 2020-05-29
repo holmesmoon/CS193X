@@ -1,8 +1,8 @@
 {
-  "name": "@cs193x/project-SUNET",
+  "name": "@cs193x/project-samanyl",
   "version": "1.0.0",
-  "description": "CS193X Project",
-  "author": "TODO",
+  "description": "Kit Switch Beta Site",
+  "author": "Samantha Liu",
   "license": "UNLICENSED",
   "private": true,
   "main": "server.js",
