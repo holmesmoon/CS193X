@@ -14,10 +14,11 @@ let db;
 let Orders;
 
 let transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: "smtp.mailtrap.io",
+  port: 2525,
   auth: {
-    user: 'liu.samantha.y@gmail.com',
-    pass: 'SamLiu7265!'
+    user: "0873940cd84a17",
+    pass: "f9af01269cde3b"
   }
 });
 
@@ -44,23 +45,39 @@ api.get("/orders", async (req, res) => {
 });
 
 api.post("/orders", async (req, res) => {
-  await Orders.insertOne({ name: name, email: email, company: company, message: message, file: file });
-  let order = await Orders.findOne(req.body.id);
+  await Orders.insertOne({ name: req.body.name, email: req.body.email, company: req.body.company, message: req.body.message});
+  let order = await Orders.findOne({ name: req.body.name });
 
-  let mailOptions = {
-    from: 'liu.samantha.y@gmail.com',
-    to: 'liu.samantha.y@gmail.com',
-    subject: `Request from ${req.body.company}`,
-    text: "You have a new request!"
+  let mailOptions1 = {
+    from: req.body.email,
+    to: 'kitswitch@gmail.com',
+    subject: `KIT SWITCH ORDER #${order._id}`,
+    html: `<p>You have a new order request from ${req.body.company}!</p><p>"${req.body.message}"</p>`
   }
 
-  if (error) {
-    console.log(error);
-    res.status(404);
-  } else {
-    console.log("Message sent: " + response.message);
-    res.json(order);
+  transporter.sendMail(mailOptions1, function(err) {
+    if (err) {
+      res.status(404);
+      res.json({ error: "Message failed to send, please try again" })
+    }
+  });
+
+  let mailOptions2 = {
+    from: 'kitswitch@gmail.com',
+    to: req.body.email,
+    subject: `KIT SWITCH ORDER CONFIRMATION`,
+    html: `<p>Dear ${req.body.name},</p><p>Thank you for your order request, please keep this email for your records.</p><p>Your order number is: #${order._id}</p>`
   }
+
+  transporter.sendMail(mailOptions2, function(err) {
+    if (err) {
+      res.status(404);
+      res.json({ error: "Message failed to send, please try again" })
+    }
+  });
+
+
+  res.json({ success: true })
 });
 
 /* This is a catch-all route that logs any requests that weren't handled above.
