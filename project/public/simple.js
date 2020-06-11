@@ -3,24 +3,33 @@ import apiRequest from "./api.js";
 const email = async (event) => {
   event.preventDefault();
   const reader = new FileReader();
-  let form = document.querySelector("#contact-form");
+  let result;
+  let status, data;
 
-  let file = document.querySelector("#file-input").files;
+  reader.addEventListener("load", async function () {
+    [status, data] = await apiRequest("POST",'/orders',{name: name, email: email, company: company, message: message, file: file.name, link: reader.result})
+    form.reset();
+    if (status == 400) {
+      console.log(data.error);
+      alert("Sorry, our server is currently down. Please try again later.");
+    } else {
+      alert("Thank you! Your message has been sent!");
+    }
+  }, false);
+
+  let form = document.querySelector("#contact-form");
+  let file = document.querySelector("#file-input").files[0];
   let name = document.querySelector("#name-input").value;
   let email = document.querySelector("#email-input").value;
   let company = document.querySelector("#company-input").value;
   let message = document.querySelector("#message-input").value;
 
-  reader.addEventListener("load", function () {
-  // convert image file to base64 string
-    preview.src = reader.result;
-  }, false);
+  if (Math.round((file.size)/1024) >= 1 * 1024) {
+    alert("Sorry, files must be less than 1MB! Please compress your files before uploading.");
+    return;
+  }
+
   reader.readAsDataURL(file);
-
-  let [status, data] = await apiRequest("POST",'/orders',{name: name, email: email, company: company, message: message})
-  form.reset();
-
-  alert("Message sent!");
 }
 
 const main = () => {

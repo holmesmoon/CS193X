@@ -7,11 +7,13 @@ const { MongoClient } = require("mongodb");
 const nodemailer = require('nodemailer');
 
 let DATABASE_NAME = "cs193x_project";
+let USER = "liu.samantha.y@gmail.com";
+let PASS = "SamLiu7265!";
 
 let api = express.Router();
 let conn;
 let db;
-let Orders;
+let Orders, Files;
 
 let transporter = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
@@ -22,18 +24,29 @@ let transporter = nodemailer.createTransport({
   }
 });
 
+// let transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: USER,
+//     pass: PASS
+//   }
+// });
+
 module.exports = async (app) => {
   app.set("json spaces", 2);
 
   conn = await MongoClient.connect("mongodb://localhost", { useUnifiedTopology: true });
   db = conn.db(DATABASE_NAME);
   Orders = db.collection("orders");
+  Files = db.collection("files");
 
   app.use("/api", api);
 };
 
 api.use(cors());
 api.use(bodyParser.json());
+// api.use(bodyParser.json({ limit: '100mb' }));
+// api.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 
 api.get("/", (req, res) => {
   res.json({ success: true });
@@ -44,40 +57,44 @@ api.get("/orders", async (req, res) => {
   res.json(orders);
 });
 
+api.get("/files", async (req, res) => {
+  let files = await Files.find().toArray();
+  res.json(files);
+});
+
 api.post("/orders", async (req, res) => {
   await Orders.insertOne({ name: req.body.name, email: req.body.email, company: req.body.company, message: req.body.message});
   let order = await Orders.findOne({ name: req.body.name });
+  await Files.insertOne({ orderID: order._id, name: req.body.file, link: req.body.link});
 
   let mailOptions1 = {
     from: req.body.email,
     to: 'kitswitch@gmail.com',
     subject: `KIT SWITCH ORDER #${order._id}`,
-    html: `<p>You have a new order request from ${req.body.company}!</p><p>"${req.body.message}"</p>`
+    html: `<p>You have a new order request from ${req.body.company}!</p>\n<p>"${req.body.message}"</p>`,
+    attachments: [{
+      filename: req.body.file,
+      href: req.body.link
+    }]
   }
-
-  transporter.sendMail(mailOptions1, function(err) {
-    if (err) {
-      res.status(404);
-      res.json({ error: "Message failed to send, please try again" })
-    }
-  });
 
   let mailOptions2 = {
     from: 'kitswitch@gmail.com',
     to: req.body.email,
     subject: `KIT SWITCH ORDER CONFIRMATION`,
-    html: `<p>Dear ${req.body.name},</p><p>Thank you for your order request, please keep this email for your records.</p><p>Your order number is: #${order._id}</p>`
+    html: `<p>Dear ${req.body.name},</p>\n<p>Thank you for your order request, please keep this email for your records.</p>\n<p>Your order number is: #${order._id}</p>`
   }
 
-  transporter.sendMail(mailOptions2, function(err) {
-    if (err) {
-      res.status(404);
-      res.json({ error: "Message failed to send, please try again" })
-    }
-  });
+  try {
+    await transporter.sendMail(mailOptions1);
+    await transporter.sendMail(mailOptions2);
+    res.json({ success: true });
+  } catch (e) {
+    res.status(400);
+    console.log(e.message);
+    res.json({ error: e.message });
+  }
 
-
-  res.json({ success: true })
 });
 
 /* This is a catch-all route that logs any requests that weren't handled above.
