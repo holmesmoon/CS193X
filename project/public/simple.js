@@ -8,13 +8,14 @@ const email = async (event) => {
 
   reader.addEventListener("load", async function () {
     [status, data] = await apiRequest("POST",'/orders',{name: name, email: email, company: company, message: message, file: file.name, link: reader.result})
-    form.reset();
     if (status == 400) {
       console.log(data.error);
       alert("Sorry, our server is currently down. Please try again later.");
+      return;
     } else {
       alert("Thank you! Your message has been sent!");
     }
+    form.reset();
   }, false);
 
   let form = document.querySelector("#contact-form");
@@ -24,8 +25,8 @@ const email = async (event) => {
   let company = document.querySelector("#company-input").value;
   let message = document.querySelector("#message-input").value;
 
-  if (Math.round((file.size)/1024) >= 1 * 1024) {
-    alert("Sorry, files must be less than 1MB! Please compress your files before uploading.");
+  if (Math.round((file.size)/1024) >= 10 * 1024) {
+    alert("Sorry, files must be less than 10MB! Please compress your files before uploading.");
     return;
   }
 

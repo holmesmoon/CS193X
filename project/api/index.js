@@ -7,30 +7,32 @@ const { MongoClient } = require("mongodb");
 const nodemailer = require('nodemailer');
 
 let DATABASE_NAME = "cs193x_project";
-let USER = "liu.samantha.y@gmail.com";
-let PASS = "SamLiu7265!";
+
+// set username and password
+let USER;
+let PASS;
 
 let api = express.Router();
 let conn;
 let db;
 let Orders, Files;
 
-let transporter = nodemailer.createTransport({
-  host: "smtp.mailtrap.io",
-  port: 2525,
-  auth: {
-    user: "0873940cd84a17",
-    pass: "f9af01269cde3b"
-  }
-});
-
 // let transporter = nodemailer.createTransport({
-//   service: 'gmail',
+//   host: "smtp.mailtrap.io",
+//   port: 2525,
 //   auth: {
-//     user: USER,
-//     pass: PASS
+//     user: "0873940cd84a17",
+//     pass: "f9af01269cde3b"
 //   }
 // });
+
+let transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: USER,
+    pass: PASS
+  }
+});
 
 module.exports = async (app) => {
   app.set("json spaces", 2);
@@ -44,9 +46,8 @@ module.exports = async (app) => {
 };
 
 api.use(cors());
-api.use(bodyParser.json());
-// api.use(bodyParser.json({ limit: '100mb' }));
-// api.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
+api.use(bodyParser.json({ limit: '10mb' }));
+api.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
 api.get("/", (req, res) => {
   res.json({ success: true });
@@ -82,7 +83,7 @@ api.post("/orders", async (req, res) => {
     from: 'kitswitch@gmail.com',
     to: req.body.email,
     subject: `KIT SWITCH ORDER CONFIRMATION`,
-    html: `<p>Dear ${req.body.name},</p>\n<p>Thank you for your order request, please keep this email for your records.</p>\n<p>Your order number is: #${order._id}</p>`
+    html: `<p>Dear ${req.body.name},</p>\n<p>Thank you for your order request with Kit Switch, please keep this email for your records.</p>\n<p>Your order number is: #${order._id}</p>`
   }
 
   try {
