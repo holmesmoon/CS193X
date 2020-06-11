@@ -8,7 +8,7 @@ const nodemailer = require('nodemailer');
 
 let DATABASE_NAME = "cs193x_project";
 
-// set username and password
+// input your own username and password
 let USER;
 let PASS;
 
