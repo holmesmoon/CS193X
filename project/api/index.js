@@ -10,6 +10,7 @@ let DATABASE_NAME = "cs193x_project";
 
 // input your own username and password
 let USER;
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost";
 let PASS;
 
 let api = express.Router();
@@ -37,7 +38,8 @@ let transporter = nodemailer.createTransport({
 module.exports = async (app) => {
   app.set("json spaces", 2);
 
-  conn = await MongoClient.connect("mongodb://localhost", { useUnifiedTopology: true });
+  // conn = await MongoClient.connect("mongodb://localhost", { useUnifiedTopology: true });
+  conn = await MongoClient.connect(MONGODB_URL, { useUnifiedTopology: true })
   db = conn.db(DATABASE_NAME);
   Orders = db.collection("orders");
   Files = db.collection("files");
