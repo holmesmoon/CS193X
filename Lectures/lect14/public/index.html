@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lecture 13</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <h1>Users/courses test</h1>
+    <form id="form">
+      <label>Student: <input id="student"></label><br>
+      <label>Course: <input id="course"></label><br>
+    </form>
+    <button id="listStudents">List students</button>
+    <button id="listCourses">List courses</button>
+    <button id="getStudent">Get student</button>
+    <button id="getStudentCourses">Get student courses</button><br>
+    <button id="enroll">Enroll</button>
+    <button id="update">Update Student</button>
+  </body>
+</html>

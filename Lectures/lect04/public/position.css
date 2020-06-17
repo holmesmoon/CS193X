@@ -1,0 +1,59 @@
+/* Rules to set sizing and colors */
+:root { /* root element (html) */
+  box-sizing: border-box;
+}
+
+* { /* inherit box-sizing from parent */
+  box-sizing: inherit;
+}
+
+body {
+  background: linear-gradient(#ffc0c0, #c0c0ff);
+  height: 2000px;
+}
+
+.box, .outer {
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+}
+
+.box {
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+.outer {
+  border: 2px dashed cyan;
+  width: 400px;
+  height: 400px;
+}
+
+/* Positioning rules */
+.relative {
+  /* default: position: static; */
+  /* relative to "usual position" */
+  position: relative;
+  /* top, left, bottom, and right */
+  left: 100px;
+  top: 150px;
+}
+
+.outer {
+  position: relative;
+}
+
+/* absolute positioning is relative to the most recent element with a position that isn't static */
+/* absolute removes element from flow */
+.absolute {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+}

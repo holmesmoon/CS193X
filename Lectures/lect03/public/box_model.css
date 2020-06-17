@@ -1,0 +1,48 @@
+body {
+  /* body has default margin. Uncomment to turn it off */
+  /*margin: 0;*/
+}
+
+.outer {
+  border: 2px solid black;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto; /* Horizontally center */
+}
+
+/* Add spacing to divs */
+.inner {
+  background-color: lightgray;
+  border: 2px solid blue;
+
+  /* by default, width/height affect content box */
+  width: 100px;
+  height: 100px;
+  /* make width/height set border-box */
+  /*box-sizing: border-box;*/
+
+  /*margin: 40px;*/ /* one value sets all margins */
+  /*margin: 10px 100px;*/ /* two values: top/bottom, left/right */
+  /* 4 values: top right bottom left */
+  /*margin: 10px 100px 150px 50px;*/
+  padding: 20px;
+}
+
+.second {
+  /* Negative margin to overlap previous div */
+  /*margin-top: -40px;*/
+  /* Caution: margin shorthand overrides margin-top explicit value. Use 4-value variant */
+  /*margin: -40px auto 0 auto;*/
+}
+
+.para {
+  border: 2px dashed red;
+  width: 200px;
+}
+
+/* Quirk: margin and padding with inline elements */
+.para span {
+  line-height: 40px;
+  /* vertical margin and pading do not work (well) */
+  border: 2px solid #007fff;
+}

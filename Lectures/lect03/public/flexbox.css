@@ -1,0 +1,31 @@
+div {
+  margin: 5px;
+}
+
+.outer {
+  border: 2px solid black;
+  width: 400px;
+  height: 200px;
+}
+
+.outer div {
+  background-color: lightgray;
+  border: 2px solid blue;
+  width: 50px;
+  height: 50px;
+}
+
+.outer { /* outer is a flex container */
+  display: flex;
+  flex-direction: row; /* row or column */
+  align-items: center; /* flex-start, center, or flex-end */
+}
+
+/* Other values for justify-content: flex-start, center, flex-end */
+.between {
+  justify-content: space-between;
+}
+
+.around {
+  justify-content: space-around;
+}
