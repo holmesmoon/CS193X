@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Google Login | Lecture 16</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <script type="module" src="google.js"></script>
+
+    <style>
+      .hidden { display: none; }
+    </style>
+  </head>
+  <body>
+    <h1>Google Login Example</h1>
+    <form id="loginForm">
+      <div id="signin"></div>
+    </form>
+    <div id="profile" class="hidden">
+      <div>Logged in as <strong id="email"></strong>.</div>
+      <div>Name: <strong id="name"></strong>.</div>
+      <button id="signout">Log out</button>
+  </body>
+</html>

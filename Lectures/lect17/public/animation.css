@@ -1,0 +1,29 @@
+.container {
+  border: 1px solid black;
+  width: 90%;
+  height: 400px;
+  margin: 1rem;
+}
+
+.box {
+  background-color: #8c1515;
+  width: 2rem;
+  height: 2rem;
+  animation: fade-and-move 2s;
+}
+
+/* transform is optimized for animations */
+@keyframes fade-and-move {
+  from {
+    opacity: 0;
+    transform: translateY(300px);
+  }
+
+  25% {
+    transform: translate(300px, 300px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}

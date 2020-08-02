@@ -1,0 +1,15 @@
+.container {
+  border: 1px solid black;
+  width: 90%;
+  height: 400px;
+  touch-actions: none;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  background-color: #8c1515;
+  width: 2rem;
+  height: 2rem;
+}
+

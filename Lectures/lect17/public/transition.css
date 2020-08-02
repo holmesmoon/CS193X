@@ -1,0 +1,14 @@
+.container {
+  border: 1px solid black;
+  width: 90%;
+  height: 400px;
+  margin: 1rem;
+}
+
+.box {
+  background-color: #8c1515;
+  width: 2rem;
+  height: 2rem;
+  transition: transform 1s;
+}
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Manual Login | Lecture 16</title>
+
+    <!-- These two lines provide automatic page and style reloading when files change -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/lib/client/updater.js" defer></script>
+
+    <script type="module" src="manual.js"></script>
+  </head>
+  <body>
+    <h1>Manual Login Example</h1>
+    <form id="loginForm">
+      <p><label>Email: <input type="email" id="email" required></label></p>
+      <p><label>Password: <input type="password" id="password" required></label></p>
+      <button type="submit" id="login">Login</button>
+    </form>
+    <p><button id="protected">Protected request</button></p>
+  </body>
+</html>

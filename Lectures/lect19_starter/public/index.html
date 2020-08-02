@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>socket.io chat | Lecture 19</title>
+
+    <!-- No updater for simplicity. It's technically possible to combine the updater with our use of socket.io, if we wanted -->
+    <!-- Can't be imported in module due to use of "sloppy mode" behavior -->
+    <script src="/socket.io/socket.io.js" defer></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Chat</h1>
+      <div id="chatarea"></div>
+      <form id="chatform">
+        <span id="nameLabel"></span>:
+        <input id="message" placeholder+"Send message">
+        <button id="send">Send</button>
+      </form>
+    </div>
+  </body>
+</html>
